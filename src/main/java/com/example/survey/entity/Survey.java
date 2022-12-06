@@ -1,6 +1,5 @@
 package com.example.survey.entity;
 
-import com.example.survey.enums.Status;
 import lombok.*;
 
 import javax.persistence.*;

@@ -2,6 +2,7 @@ package com.example.survey.service.ServiceImpl;
 
 import com.example.survey.dto.CreateEditDto.SurveyCreateEditDto;
 import com.example.survey.dto.ReadDto.SurveyReadDto;
+import com.example.survey.entity.Survey;
 import com.example.survey.mapper.SurveyMapper;
 import com.example.survey.repository.SurveyRepository;
 import com.example.survey.service.SurveyService;
@@ -25,6 +26,14 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public List<SurveyReadDto> findAll() {
         return surveyRepository.findAll().stream()
+                .map(SurveyMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<SurveyReadDto> findAllAnswered() {
+        List<Survey> allBy = surveyRepository.findAllBy();
+        return allBy.stream()
                 .map(SurveyMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }

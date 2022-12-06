@@ -1,6 +1,7 @@
 package com.example.survey.repository;
 
 import com.example.survey.entity.Survey;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,4 +14,8 @@ public interface SurveyRepository extends JpaRepository<Survey, Integer> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM survey s WHERE s.end_date>localtimestamp AND id=?1")
     public Optional<Survey> findActiveById(Integer id);
+
+    @EntityGraph(attributePaths = {"questions"})
+    @Query(value = "select s from Survey as s")
+    public List<Survey> findAllBy();
 }
