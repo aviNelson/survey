@@ -36,14 +36,15 @@ public class Survey {
     @Builder.Default
     private List<Question> questions=new ArrayList<>();
 
+    @OneToMany(mappedBy = "survey",cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Answer> answers=new ArrayList<>();
+
     public void addQuestion(Question question){
         questions.add(question);
         question.setSurvey(this);
     }
-    public void removeQuestion(Question question) {
-        questions.remove(question);
-        question.setSurvey(null);
-    }
+
 
     @Override
     public boolean equals(Object o) {

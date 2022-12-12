@@ -10,5 +10,5 @@ public class QuestionReadDto {
     String questionText;
     Integer surveyId;
     String questionType;
-    List<AnsweredQuestionReadDto> answeredQuestions;
+    List<AnswerReadDto> answers;
 }

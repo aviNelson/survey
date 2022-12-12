@@ -4,9 +4,9 @@
 CREATE TABLE IF NOT EXISTS users
 (
     id        SERIAL PRIMARY KEY,
-    email VARCHAR(64) NOT NULL UNIQUE,
-    password  VARCHAR(64) NOT NULL,
-    role VARCHAR(64)
+    email VARCHAR(128) NOT NULL UNIQUE,
+    password  VARCHAR(128) NOT NULL,
+    roles VARCHAR(64) DEFAULT 'USER'
     );
 
 --changeset avi_nelson:2

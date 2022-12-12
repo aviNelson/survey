@@ -4,6 +4,7 @@ import com.example.survey.dto.CreateEditDto.UserCreateEditDto;
 import com.example.survey.dto.ReadDto.UserReadDto;
 import com.example.survey.entity.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

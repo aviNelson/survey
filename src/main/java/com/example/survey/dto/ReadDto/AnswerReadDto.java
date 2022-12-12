@@ -1,11 +1,14 @@
 package com.example.survey.dto.ReadDto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Value;
+import com.example.survey.entity.Question;
+import com.example.survey.entity.Survey;
+import com.example.survey.entity.User;
+import lombok.*;
 
 @Value
 public class AnswerReadDto {
-    Integer id;
+    Integer surveyId;
+    Integer questionId;
+    Integer userId;
     String content;
-    Integer answeredQuestion;
 }

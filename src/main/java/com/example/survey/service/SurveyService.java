@@ -11,6 +11,7 @@ public interface SurveyService {
 
     public List<SurveyReadDto> findAllAnswered();
 
+
     public List<SurveyReadDto> findActive();
 
     public Optional<SurveyReadDto> findById(Integer id);

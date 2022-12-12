@@ -28,11 +28,17 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "roles",insertable = false)
     private Role role;
 
     @Builder.Default
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<AnsweredQuestion> answeredQuestions = new ArrayList<>();
+    private List<Answer> answers = new ArrayList<>();
+
+    public void addAnswers(Answer answer){
+        answers.add(answer);
+        answer.setUser(this);
+    }
 
     @Override
     public boolean equals(Object o) {

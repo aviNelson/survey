@@ -32,11 +32,18 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public List<SurveyReadDto> findAllAnswered() {
-        List<Survey> allBy = surveyRepository.findAllBy();
-        return allBy.stream()
+        return surveyRepository.findAllBy().stream()
                 .map(SurveyMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
     }
+
+
+//    @Override
+//    public List<SurveyReadDto> findAllUserAnswer(String username) {
+//        return surveyRepository.findAllByUsername(username).stream()
+//                .map(SurveyMapper.INSTANCE::toDTO)
+//                .collect(Collectors.toList());
+//    }
 
     @Override
     public List<SurveyReadDto> findActive() {

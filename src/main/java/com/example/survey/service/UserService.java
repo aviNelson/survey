@@ -11,9 +11,11 @@ public interface UserService {
 
     public Optional<UserReadDto> findById(Integer id);
 
+    public Optional<UserReadDto> findByUsername(String username);
+
     public UserReadDto create(UserCreateEditDto user);
 
-    public Optional<UserReadDto> update(Integer id, UserCreateEditDto user);
+    public Optional<UserReadDto> update(String username, UserCreateEditDto user);
 
     public boolean delete(Integer id);
 }

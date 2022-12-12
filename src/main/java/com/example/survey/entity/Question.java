@@ -36,8 +36,8 @@ public class Question {
     private List<AnswerVariant> answerVariants= new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    private List<AnsweredQuestion> answeredQuestions = new ArrayList<>();
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<Answer> answers= new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

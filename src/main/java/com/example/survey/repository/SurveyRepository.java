@@ -18,4 +18,8 @@ public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     @EntityGraph(attributePaths = {"questions"})
     @Query(value = "select s from Survey as s")
     public List<Survey> findAllBy();
+
+//    @EntityGraph(attributePaths = {"questions"})
+//    @Query(nativeQuery = true,value = "SELECT s.* FROM survey s left join answered_question aq on s.id = aq.survey_id left join users u on aq.user_id = u.id WHERE u.email=?1")
+//    public List<Survey> findAllByUsername(String username);
 }
