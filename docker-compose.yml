@@ -11,6 +11,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: survey
   app:
+    image: avinelson/survey:latest
     container_name: survey_app
     build: ./
     ports:
