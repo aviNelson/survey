@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.2'
     id "io.spring.dependency-management" version '1.0.11.RELEASE'
     id "io.freefair.lombok" version "6.3.0"
+    id 'com.google.cloud.tools.jib' version '3.3.1'
     id 'java'
 
 }
@@ -20,17 +21,27 @@ repositories {
     mavenCentral()
 }
 
+jib {
+    from {
+        image = "bellsoft/liberica-openjdk-alpine-musl"
+    }
+    to {
+        image = "registry.hub.docker.com/avinelson/${rootProject.name}:latest"
+        auth {
+            username = System.getProperty('username')
+            password = System.getProperty('password')
+        }
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.liquibase:liquibase-core'
-    implementation 'io.springfox:springfox-swagger2:3.0.0'
-    implementation 'io.springfox:springfox-boot-starter:3.0.0'
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
 
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 
