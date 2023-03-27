@@ -1,10 +1,10 @@
 
  <br/>
 <p align="center">
-  <h3 align="left">Microservices-project</h3>
+  <h3 align="left">Survey</h3>
 
   <p align="left">
-    Небольшое e-commerce приложение для оформления заказов
+    Приложение для создания и прохождения опросов.
     <br/>
     <br/>
   </p>
